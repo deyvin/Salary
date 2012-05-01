@@ -1,9 +1,9 @@
 <div class="modal hide fade" id="myModal">
   <div class="modal-header">
     <button class="close" data-dismiss="modal">×</button>
-    <h3><%= image_tag "icons/dollar.png", :width => 24 %> Colabore informando seu salário e cidade</h3>
+    <h3>Colabore informando seu salário e cidade</h3>
   </div>
-  <%= form_for(salario, remote: true) do |f| %>
+  <%= form_for(salario, remote: true, html: {class:  "well form-horizontal"}) do |f| %>
   <div class="modal-body">
 		<div class="alert alert-success hide" id="success">
 		  <button class="close" data-dismiss="alert">×</button>
@@ -18,22 +18,50 @@
 		  </span>
 		</div>
     	
-	
-			<%= label :city_state, "Estado" %>
-		    <%= select :city_state,"state", @states.collect {|s| [ s.name, s.id ] }, {:prompt => 'Selecione Estado'}, class: "estados"  %>
-			<%= f.label :city, "Cidade" %>
-		  	<%= f.select :city_id, [], {:prompt => 'Selecione Estado antes'}, class: "cidades" %>
-			<%= f.label :amount, "Salário" %>
-			<%= f.text_field :amount %>
-			<div id="gotcha">
-				<%= gotcha %>
+			<fieldset>
+			<div class="control-group">
+				<%= label :city_state, "Estado ", class: "control-label" %>
+				<div class="controls">
+				<%= select :city_state,"state", @states.collect {|s| [ s.name, s.id ] }, {:prompt => 'Selecione Estado'}, class: "estados"  %>
+				</div>
 			</div>
+			
+			<div class="control-group">
+				<%= f.label :city, "Cidade ", class: "control-label" %>
+				<div class="controls">
+					<%= f.select :city_id, [], {:prompt => 'Selecione Estado antes'}, class: "cidades" %>
+				</div>
+			</div>
+			
+			<div class="control-group">
+				<%= f.label :amount, "Salário ", class: "control-label" %>
+				<div class="controls">
+					<%= f.text_field :amount %>
+				</div>
+			</div>
+			
+		</fieldset>
+		
+			
+	
 			
 
   </div>
   <div class="modal-footer">
-    <a href="#" class="btn" data-dismiss="modal">Cancelar</a>
-	<%= f.button "Enviar", type: "submit", :class => "btn btn-primary" %>
+	<div class="row-fluid">
+		<div id="gotcha" class="span8">
+			<fieldset>
+			<div class="control-group">
+					<%= gotcha({label_options: {class: "control-label"}, text_field_options: {class: "input-small"}}) %>
+			</div>
+			</fieldset>
+		</div>
+		<div class="span4">
+		    <a href="#" class="btn" data-dismiss="modal">Cancelar</a>
+			<%= f.button "Enviar", type: "submit", :class => "btn btn-success" %>
+			
+		</div>
+	</div>
   </div>
   <% end %>
 </div>
