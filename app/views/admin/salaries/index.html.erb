@@ -16,7 +16,7 @@
 		        <td><%= salary.id %></td>
 				<td><%= salary.city.state.name %> </td>
 				<td><%= salary.city.name %> </td>
-		        <td><%= salary.created_at %></td>
+		        <td><%= salary.created_at.strftime("%d/%m/%Y %I:%M %p") %></td>
 				<td class="coluna_salario"><%= number_to_currency(salary.amount, format: "%u %n", separator: ",", delimiter: ".", unit: "R$") %> </td>
 		        <td><%= link_to "Excluir", admin_salary_path(salary), method: :delete, confirm: "Tem certeza?"%></td>
 			</tr>
