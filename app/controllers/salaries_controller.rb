@@ -1,7 +1,6 @@
 #encoding: UTF-8
 class SalariesController < ApplicationController
 	respond_to :html, :js
-	layout "bootstrap"
 	def index
 		@states = State.all
 		@salario = Salary.new
