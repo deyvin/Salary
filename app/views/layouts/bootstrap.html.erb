@@ -3,34 +3,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>Ruby Salary - média de quanto é pago aos programadores Ruby</title>
+    <META NAME="DESCRIPTION" CONTENT="Ruby Salary: an app to track the avarage salary of Ruby programmers, uma aplicação para ver o salário médio pago aos programadores Ruby">
+    <META NAME="KEYWORDS" CONTENT="ruby, salary, ruby salary, rails salary, salário ruby, salário rails, salário programador ruby, salário programador rails">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-	<style type="text/css" media="screen">
-		body .container {
-			margin-top:30px;
-		}
-		h1 {
-			font-size:90px !important;
-		}
-		.right {
-			text-align:right !important;
-		}
-		footer p {
-			text-align:right;
-			color:#e2e2e2;
-		}
-		div#gotcha div {
-			text-align:left;
-		}
-		div#gotcha input {
-			margin-left:5px;
-		}
-	</style>
+
     <!-- Le styles -->
-    <%= stylesheet_link_tag "bootstrap.min", :media => "all" %>
+      <%= stylesheet_link_tag "bootstrap.min" %>
+	  <%= stylesheet_link_tag "custom" %>
 	  <%= csrf_meta_tags %>
 	  <script type="text/javascript">
 
@@ -52,6 +33,7 @@
     <![endif]-->
 
     <!-- Le fav and touch icons -->
+ 	<link rel="shortcut icon" href="/assets/icons/dollar.png" />
     
   </head>
 
@@ -74,7 +56,7 @@
 				</div>
 				<div class="row-fluid">
 					<div class="span6">
-						<h2><a href="#" id="informar_salario" class="btn btn-success">colabore também: informe seu salário</a></h2>		
+						<h2><a href="#" id="informar_salario" class="btn btn-success">Colabore Também: Informe seu salário</a></h2>		
 					</div>
 					<div class="span6 right">
 						<div class="fb-like" data-href="http://ruby-salary.heroku.com" data-send="true" data-layout="button_count" data-width="150" data-show-faces="false" style="position: relative; top: -3px"></div>
@@ -97,10 +79,7 @@
 		</div>
  		<%=yield %>
     </div>
-    <hr>
-    <footer>
-        <p>&copy; Company 2012</p>
-    </footer>
+
 
     </div> <!-- /container -->
 
@@ -113,17 +92,6 @@
   <%= javascript_include_tag "application" %>
 	<%= javascript_include_tag "bootstrap" %>
 	<%= javascript_include_tag "bootstrap-modal" %>
-	<script>
-	$("#informar_salario").click(function() {
-		$('#myModal').modal({
-		  keyboard: false
-		});
-	});
-	$(function() {
-		$("#informar_salario").click(function(e){
-			$("#salary_amount").maskMoney({symbol:'R$ ', showSymbol:true, thousands:'.', decimal:',', symbolStay: true, allowZero:false, allowNegative:false})
-		});
-	});
-	</script>
+	<%= javascript_include_tag "custom" %>
   </body>
 </html>
