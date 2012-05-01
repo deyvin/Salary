@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+	<style type="text/css" media="screen">
+		body .container {
+			margin-top:30px;
+		}
+		h1 {
+			font-size:90px !important;
+		}
+		.right {
+			text-align:right !important;
+		}
+		footer p {
+			text-align:right;
+			color:#e2e2e2;
+		}
+	</style>
+    <!-- Le styles -->
+    <%= stylesheet_link_tag "bootstrap.min", :media => "all" %>
+	  <%= csrf_meta_tags %>
+	  <script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-29589482-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    
+  </head>
+
+  <body>
+	 <div id="fb-root"></div>
+	    <script language="javascript">
+	      (function(d, s, id) {
+	        var js, fjs = d.getElementsByTagName(s)[0];
+	        if (d.getElementById(id)) return;
+	        js = d.createElement(s); js.id = id;
+	        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=336658186385469";
+	        fjs.parentNode.insertBefore(js, fjs);
+	      }(document, 'script', 'facebook-jssdk'));
+	    </script>
+    <div class="container">
+		<div class="row">
+			<div class="span12">
+				<div class="page-header">
+				  <h1><%= image_tag "icons/dollar.png" %> Ruby Salary <small>média de quanto é pago aos programadores Ruby</small></h1>
+				</div>
+				<div class="row-fluid">
+					<div class="span6">
+						<h2><a href="#" id="informar_salario" class="btn btn-success">colabore também: informe seu salário</a></h2>		
+					</div>
+					<div class="span6 right">
+						<div class="fb-like" data-href="http://ruby-salary.heroku.com" data-send="true" data-layout="button_count" data-width="150" data-show-faces="false" style="position: relative; top: -3px"></div>
+					        <a href="https://twitter.com/share" class="twitter-share-button" data-via="vquaiato">Tweet</a>
+					        <script language="javascript">
+					            !function (d, s, id) {
+					                var js, fjs = d.getElementsByTagName(s)[0];
+					                if (!d.getElementById(id)) {
+					                    js = d.createElement(s);
+					                    js.id = id;
+					                    js.src = "//platform.twitter.com/widgets.js";
+					                    fjs.parentNode.insertBefore(js, fjs);
+					                }
+					            } (document, "script", "twitter-wjs");
+					        </script>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+ 		<%=yield %>
+    </div>
+    <hr>
+    <footer>
+        <p>&copy; Company 2012</p>
+    </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<a href="http://github.com/tapajos/Salary"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/abad93f42020b733148435e2cd92ce15c542d320/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub"></a>
+    <%= javascript_include_tag "jquery" %>
+
+  <%= javascript_include_tag "application" %>
+	<%= javascript_include_tag "bootstrap" %>
+	<%= javascript_include_tag "bootstrap-modal" %>
+	<script>
+	$("#informar_salario").click(function() {
+		$('#myModal').modal({
+		  keyboard: false
+		});
+	});
+	</script>
+  </body>
+</html>
